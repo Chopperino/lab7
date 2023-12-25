@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Lab 7</title>
+  </head>
+
+  <body>
+    <header>
+      <h3>ЗАВДАННЯ 9</h3>
+    </header>
+    <main>
+      <div class="widget">
+        <p>Background color: <span class="color">-</span></p>
+        <button type="button" class="change-color">Change color</button>
+      </div>
+    </main>
+    <footer></footer>
+
+    <script>
+      // Генерація випадкового кольору
+      function getRandomHexColor() {
+        return `#${Math.floor(Math.random() * 16777215)
+          .toString(16)
+          .padStart(6, "0")}`;
+      }
+
+      // Отримуємо body, span та button
+      const bodyElement = document.body;
+      const colorSpan = document.querySelector(".color");
+      const changeColorButton = document.querySelector(".change-color");
+
+      // Зміна кольору
+      function changeColor() {
+        const newColor = getRandomHexColor();
+
+        bodyElement.style.backgroundColor = newColor;
+
+        colorSpan.textContent = newColor;
+      }
+
+      // Зміна кольору по кліку
+      changeColorButton.addEventListener("click", changeColor);
+    </script>
+  </body>
+</html>

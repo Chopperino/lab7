@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Лабораторна робота 7</title>
+  </head>
+  <body>
+    <header>
+      <h3>ЗАВДАННЯ 3</h3>
+    </header>
+    <main>
+      <div style="display: inline-block">
+        <input type="text" id="password-input" />
+        <button onclick="hideOrReveal()" id="button-3">Приховати</button>
+      </div>
+    </main>
+    <footer></footer>
+    <script>
+      // Змінна для тимчасового зберігання оригінального паролю
+      let passwordTemp = "";
+
+      // Функція для приховування або розкриття паролю в полі введення
+      function hideOrReveal() {
+        // Перевірка, чи текст кнопки "Приховати"
+        if (document.getElementById("button-3").innerHTML === "Приховати") {
+          // Зберегти оригінальний пароль
+          passwordTemp = document.getElementById("password-input").value;
+
+          // Замінити пароль зірочками (*)
+          document.getElementById("password-input").value = "";
+          for (let i = 0; i < passwordTemp.length; i++) {
+            document.getElementById("password-input").value += "*";
+          }
+
+          // Змінити текст кнопки на "Розкрити"
+          document.getElementById("button-3").innerHTML = "Розкрити";
+        } else {
+          // Якщо текст кнопки не "Приховати", розкрити оригінальний пароль
+          document.getElementById("password-input").value = passwordTemp;
+
+          // Очистити тимчасовий пароль
+          passwordTemp = "";
+
+          // Змінити текст кнопки назад на "Приховати"
+          document.getElementById("button-3").innerHTML = "Приховати";
+        }
+      }
+    </script>
+  </body>
+</html>

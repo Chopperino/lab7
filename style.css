@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(132, 218, 115);
+    transition: background-color 0.5s;
+}
+
+#place {
+    background-color: rgb(88, 170, 50);
+    width: 75px;
+    height: 150px;
+}
+
+#boxes {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #boxes > div {
+    margin: 5px;
+  }
